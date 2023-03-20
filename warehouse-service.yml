@@ -1,6 +1,22 @@
-#spring:
-#  profiles:
-#    active: docker-env
+spring:
+  config:
+    activate:
+      on-profile: common
+
+  jpa:
+    hibernate: ddl-auto=none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+logging:
+  level:
+    root: INFO
 
 ---
 spring:

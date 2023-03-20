@@ -30,18 +30,18 @@ logging:
   level:
     root: INFO
 
-#resilience4j:
-#  circuitbreaker:
-#    instances:
-#      inventory:
-#        registerHealthIndicator: true # To see different states of circuit breaker: Closed, Open, Half-Open
-#        event-consumer-buffer-size: 10 # How much buffer size it is going to take for the events
-#        slidingWindowType: COUNT_BASED # Make sure that r4j won't open circuit breaker right away. If r4j understands that a call to the inv service is failing. It won't change state from close to open right away. It will w8 for some number of reqs.
-#        slidingWindowSize: 5 # After X below rew circuit breaker will try to change from close to the open state
-#        failureRateThreshold: 50 # When the 50% of calls are like failed ...
-#        waitDurationInOpenState: 5s # Then we define how much time we can wait in the open state. Before going to half open state we don't want to allow all the calls to execute the fallback logic. R4j w8 5 sec in the open state before changing to the half open state.
-#        permittedNumberOfCallsInHalfOpenState: 3 # After x calls r4j check whether the communication between services is working fine or not. When 3 calls are failing it will change the status to open.
-#        automaticTransitionFromOpenToHalfOpenEnabled: true # We want to automatically transition like enable transition between open to half open.
+resilience4j:
+  circuitbreaker:
+    instances:
+      inventory:
+        registerHealthIndicator: true # To see different states of circuit breaker: Closed, Open, Half-Open
+        event-consumer-buffer-size: 10 # How much buffer size it is going to take for the events
+        slidingWindowType: COUNT_BASED # Make sure that r4j won't open circuit breaker right away. If r4j understands that a call to the inv service is failing. It won't change state from close to open right away. It will w8 for some number of reqs.
+        slidingWindowSize: 5 # After X below rew circuit breaker will try to change from close to the open state
+        failureRateThreshold: 50 # When the 50% of calls are like failed ...
+        waitDurationInOpenState: 5s # Then we define how much time we can wait in the open state. Before going to half open state we don't want to allow all the calls to execute the fallback logic. R4j w8 5 sec in the open state before changing to the half open state.
+        permittedNumberOfCallsInHalfOpenState: 3 # After x calls r4j check whether the communication between services is working fine or not. When 3 calls are failing it will change the status to open.
+        automaticTransitionFromOpenToHalfOpenEnabled: true # We want to automatically transition like enable transition between open to half open.
 
 
 ---

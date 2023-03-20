@@ -22,8 +22,8 @@ spring:
     locations: classpath:db.migration
     enabled: true
 
-    server:
-      port: 1212
+server:
+  port: 1212
 
 ---
 spring:

@@ -47,6 +47,8 @@ resilience4j.circuitbreaker.instances.inventory.permittedNumberOfCallsInHalfOpen
 # We want to automatically transition like enable transition between open to half open
 resilience4j.circuitbreaker.instances.inventory.automaticTransitionFromOpenToHalfOpenEnabled=true
 
+
+
 # Eureka Client cfg
 eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id:${random.value}}
 

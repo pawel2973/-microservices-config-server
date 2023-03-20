@@ -32,12 +32,12 @@ spring:
       on-profile: local-env
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/warehouse
+    url: jdbc:postgresql://localhost:5432/inventory
     username: postgres
     password: postgres
 
   flyway:
-    url: jdbc:postgresql://localhost:5432/warehouse
+    url: jdbc:postgresql://localhost:5432/inventory
     schemas: public
     user: postgres
     password: postgres
@@ -46,7 +46,7 @@ spring:
     enabled: true
 
 server:
-  port: 9005
+  port: 9015
 
 
 ---
@@ -56,12 +56,12 @@ spring:
       on-profile: docker-env
 
   datasource:
-    url: jdbc:postgresql://postgres-db:5432/db_warehouse
+    url: jdbc:postgresql://postgres-db:5432/db_inventory
     username: postgres
     password: postgres
 
   flyway:
-    url: jdbc:postgresql://postgres-db:5432/db_warehouse
+    url: jdbc:postgresql://postgres-db:5432/db_inventory
     schemas: public
     user: postgres
     password: postgres
@@ -70,4 +70,4 @@ spring:
     enabled: true
 
 server:
-  port: 9010
+  port: 9020

@@ -1,0 +1,92 @@
+spring:
+  config:
+    activate:
+      on-profile: common
+
+  jpa:
+    hibernate: ddl-auto=none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+  health:
+    circuitbreakers:
+      enabled: true
+    endpoint:
+      health:
+        show-details: always
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+logging:
+  level:
+    root: INFO
+
+  resilience4j:
+    circuitbreaker:
+      instances:
+        inventory:
+          registerHealthIndicator: true # To see different states of circuit breaker: Closed, Open, Half-Open
+          event-consumer-buffer-size: 10 # How much buffer size it is going to take for the events
+          slidingWindowType: COUNT_BASED # Make sure that r4j won't open circuit breaker right away. If r4j understands that a call to the inv service is failing. It won't change state from close to open right away. It will w8 for some number of reqs.
+          slidingWindowSize: 5 # After X below rew circuit breaker will try to change from close to the open state
+          failureRateThreshold: 50 # When the 50% of calls are like failed ...
+          waitDurationInOpenState: 5s # Then we define how much time we can wait in the open state. Before going to half open state we don't want to allow all the calls to execute the fallback logic. R4j w8 5 sec in the open state before changing to the half open state.
+          permittedNumberOfCallsInHalfOpenState: 3 # After x calls r4j check whether the communication between services is working fine or not. When 3 calls are failing it will change the status to open.
+          automaticTransitionFromOpenToHalfOpenEnabled: true # We want to automatically transition like enable transition between open to half open.
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local-env
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order
+    username: postgres
+    password: postgres
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/order
+    schemas: public
+    user: postgres
+    password: postgres
+    baseline-version: 1
+    locations: classpath:db.migration
+    enabled: true
+
+server:
+  port: 9025
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker-env
+
+  datasource:
+    url: jdbc:postgresql://postgres-db:5432/db_order
+    username: postgres
+    password: postgres
+
+  flyway:
+    url: jdbc:postgresql://postgres-db:5432/db_order
+    schemas: public
+    user: postgres
+    password: postgres
+    baseline-version: 1
+    locations: classpath:db.migration
+    enabled: true
+
+server:
+  port: 9030

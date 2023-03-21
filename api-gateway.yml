@@ -1,0 +1,53 @@
+spring:
+
+  config:
+    activate:
+      on-profile: common
+
+  cloud:
+    gateway:
+      routes[0]:
+        id: warehouse-service-products
+        uri: lb://warehouse-service
+        predicates: Path=/api/products/**
+
+      routes[1]:
+        id: warehouse-service-categories
+        uri: lb://warehouse-service
+        predicates: Path=/api/categories/**
+
+      routes[2]:
+        id: order-service
+        uri: lb://order-service
+        predicates: Path=/api/orders/**
+
+      routes[3]:
+        id: inventory-service
+        uri: lb://inventory-service
+        predicates: Path=/api/inventory/**
+
+      routes[4]:
+        id: discovery-server
+        uri: http://localhost:9000
+        predicates: Path=/eureka/web
+        filters: SetPath=/
+
+      routes[5]:
+        id: discovery-server-static
+        uri: http://localhost:9000
+        predicates: Path=/eureka/**
+
+      routes[6]:
+        id: api-gateway-cfg
+        uri: lb://config-server
+        predicates: Path=/api-gateway/**
+
+
+logging:
+  level:
+    root: INFO
+
+  org:
+    springframework:
+      cloud:
+        gateway: TRACE

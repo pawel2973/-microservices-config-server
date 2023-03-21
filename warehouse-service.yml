@@ -32,12 +32,12 @@ spring:
       on-profile: local-env
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/warehouse
+    url: jdbc:postgresql://localhost:5432/lc_warehouse
     username: postgres
     password: postgres
 
   flyway:
-    url: jdbc:postgresql://localhost:5432/warehouse
+    url: jdbc:postgresql://localhost:5432/lc_warehouse
     schemas: public
     user: postgres
     password: postgres

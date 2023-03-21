@@ -54,12 +54,12 @@ spring:
       on-profile: local-env
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/order
+    url: jdbc:postgresql://localhost:5432/lc_order
     username: postgres
     password: postgres
 
   flyway:
-    url: jdbc:postgresql://localhost:5432/order
+    url: jdbc:postgresql://localhost:5432/lc_order
     schemas: public
     user: postgres
     password: postgres

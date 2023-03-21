@@ -34,12 +34,12 @@ spring:
       on-profile: local-env
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/inventory
+    url: jdbc:postgresql://localhost:5432/lc_inventory
     username: postgres
     password: postgres
 
   flyway:
-    url: jdbc:postgresql://localhost:5432/inventory
+    url: jdbc:postgresql://localhost:5432/lc_inventory
     schemas: public
     user: postgres
     password: postgres

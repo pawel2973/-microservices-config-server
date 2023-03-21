@@ -53,15 +53,63 @@ server:
 spring:
   config:
     activate:
-      on-profile: docker-env
+      on-profile: docker-env-basic
 
   datasource:
-    url: jdbc:postgresql://postgres-db:5432/db_warehouse
+    url: jdbc:postgresql://postgres-db-basic:5432/db_warehouse
     username: postgres
     password: postgres
 
   flyway:
-    url: jdbc:postgresql://postgres-db:5432/db_warehouse
+    url: jdbc:postgresql://postgres-db-basic:5432/db_warehouse
+    schemas: public
+    user: postgres
+    password: postgres
+    baseline-version: 1
+    locations: classpath:db.migration
+    enabled: true
+
+server:
+  port: 9010
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker-env-ly
+
+  datasource:
+    url: jdbc:postgresql://postgres-db-ly:5432/db_warehouse
+    username: postgres
+    password: postgres
+
+  flyway:
+    url: jdbc:postgresql://postgres-db-ly:5432/db_warehouse
+    schemas: public
+    user: postgres
+    password: postgres
+    baseline-version: 1
+    locations: classpath:db.migration
+    enabled: true
+
+server:
+  port: 9010
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker-env-msb
+
+  datasource:
+    url: jdbc:postgresql://postgres-db-msb:5432/db_warehouse
+    username: postgres
+    password: postgres
+
+  flyway:
+    url: jdbc:postgresql://postgres-db-ly:5432/db_warehouse
     schemas: public
     user: postgres
     password: postgres

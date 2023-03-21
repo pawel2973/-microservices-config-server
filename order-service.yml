@@ -15,6 +15,7 @@ management:
     web:
       exposure:
         include: "*"
+
   health:
     circuitbreakers:
       enabled: true
@@ -45,6 +46,8 @@ resilience4j:
 
 
 ---
+
+
 spring:
   config:
     activate:
@@ -69,6 +72,8 @@ server:
 
 
 ---
+
+
 spring:
   config:
     activate:

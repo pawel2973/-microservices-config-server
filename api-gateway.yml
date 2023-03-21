@@ -43,6 +43,16 @@ spring:
         predicates: Path=/api-gateway/**
 
 
+management:
+  endpoint:
+    gateway:
+      enabled: true
+
+    web:
+      exposure:
+        include: health,gateway
+
+
 logging:
   level:
     root: INFO

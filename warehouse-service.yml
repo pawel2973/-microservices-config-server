@@ -109,7 +109,7 @@ spring:
     password: postgres
 
   flyway:
-    url: jdbc:postgresql://postgres-db-ly:5432/db_warehouse
+    url: jdbc:postgresql://postgres-db-msb:5432/db_warehouse
     schemas: public
     user: postgres
     password: postgres

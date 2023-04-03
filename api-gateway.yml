@@ -58,9 +58,9 @@ spring:
         predicates: Path=/inventory-service/**
 
       routes[10]:
-        id: api-gateway
+        id: api-gateway-gateway-actuator
         uri: http://localhost:8080
-        predicates: Path=/actuator/**
+        predicates: Path=/actuator/gateway/**
 
 management:
   endpoint:

@@ -57,12 +57,6 @@ spring:
         uri: lb://config-server
         predicates: Path=/inventory-service/**
 
-      httpclient:
-        wiretap: true
-      httpserver:
-        wiretap: true
-
-
 management:
   endpoint:
     gateway:
@@ -75,8 +69,6 @@ management:
 logging:
   level:
     root: INFO
-  reactor:
-    netty: INFO
   org:
     springframework:
       cloud:

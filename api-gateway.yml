@@ -50,7 +50,6 @@ management:
       exposure:
         include: health,gateway
 
-
 logging:
   level:
     root: INFO

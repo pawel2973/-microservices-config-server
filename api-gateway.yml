@@ -40,12 +40,24 @@ spring:
       routes[6]:
         id: microservices-config-server
         uri: lb://config-server
-        predicates[0]: Path=/api-gateway/**
-        predicates[1]: Path=/warehouse-service/**
-        predicates[2]: Path=/order-service/**
-        predicates[3]: Path=/inventory-service/**
+        predicates: Path=/api-gateway/**
 
       routes[7]:
+        id: config-warehouse-service
+        uri: lb://config-server
+        predicates: Path=/warehouse-service/**
+
+      routes[8]:
+        id: config-order-service
+        uri: lb://config-server
+        predicates: Path=/order-service/**
+
+      routes[9]:
+        id: config-inventory-service
+        uri: lb://config-server
+        predicates: Path=/inventory-service/**
+
+      routes[10]:
         id: api-gateway
         uri: http://localhost:8080
         predicates: Path=/actuator/**

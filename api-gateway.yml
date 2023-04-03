@@ -57,6 +57,11 @@ spring:
         uri: lb://config-server
         predicates: Path=/inventory-service/**
 
+      routes[10]:
+        id: config-notification-service
+        uri: lb://config-server
+        predicates: Path=/notification-service/**
+
 management:
   endpoint:
     gateway:

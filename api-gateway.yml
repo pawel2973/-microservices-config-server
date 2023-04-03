@@ -45,8 +45,9 @@ spring:
       routes[7]:
         id: config-server-actuator
         uri: lb://config-server
-        predicates: Path=/actuator/**
-        filters: SetPath=/cfg/actuator/**
+        predicates: Path=/cfg/actuator/**
+        filters: SetPath=/actuator/**
+
 
 
 management:

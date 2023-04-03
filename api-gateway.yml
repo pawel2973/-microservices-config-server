@@ -38,9 +38,12 @@ spring:
         predicates: Path=/eureka/**
 
       routes[6]:
-        id: api-gateway-cfg
+        id: microservices-config-server
         uri: lb://config-server
-        predicates: Path=/api-gateway/**
+        predicates[0]: Path=/api-gateway/**
+        predicates[1]: Path=/warehouse-service/**
+        predicates[2]: Path=/order-service/**
+        predicates[3]: Path=/inventory-service/**
 
 management:
   endpoint:
@@ -53,7 +56,6 @@ management:
 logging:
   level:
     root: INFO
-
   org:
     springframework:
       cloud:

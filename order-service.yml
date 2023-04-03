@@ -10,6 +10,14 @@ spring:
       hibernate:
         format_sql: true
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    template:
+      default-topic: lastOrdersTopic
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
 management:
   endpoints:
     web:

@@ -51,7 +51,7 @@ management:
       enabled: true
     web:
       exposure:
-        include: health,gateway
+        include: gateway,health
 
 logging:
   level:

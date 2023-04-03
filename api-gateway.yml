@@ -78,5 +78,5 @@ logging:
     springframework:
       cloud:
         gateway:
-          handler:
-            RoutePredicateHandlerMapping: TRACE
+          route:
+            RouteDefinitionLocator: TRACE

@@ -42,6 +42,11 @@ spring:
         uri: lb://config-server
         predicates: Path=/api-gateway/**
 
+      routes[7]:
+        id: config-server-actuator
+        uri: lb://config-server
+        predicates: Path=/actuator/**
+
 
 management:
   endpoint:

@@ -46,7 +46,7 @@ spring:
         id: config-server-actuator
         uri: lb://config-server
         predicates: Path=/cfg/actuator/**
-        filters: RewritePath=/actuator/(?<segment>.*), /$\{segment}
+        filters: "RewritePath=/actuator/(?<segment>.*), /$\{segment}"
 
 management:
   endpoint:

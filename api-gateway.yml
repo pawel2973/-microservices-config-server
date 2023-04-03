@@ -72,7 +72,8 @@ logging:
   org:
     springframework:
       cloud:
+        gateway:
+          route:
+              RouteDefinitionRouteLocator: TRACE
         gateway: TRACE
-      http: TRACE
-      web: TRACE
-      reactor: TRACE
+

@@ -4,7 +4,6 @@ spring:
       on-profile: common
 
   kafka:
-    bootstrap-servers: localhost:9092
     template:
       default-topic: lastOrdersTopic
     consumer:
@@ -27,3 +26,46 @@ logging:
 
 server:
   port: 8777
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local-env
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker-env-basic
+
+  kafka:
+    bootstrap-servers: kafka-broker-basic:9092
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker-env-ly
+
+  kafka:
+    bootstrap-servers: kafka-broker-ly:9092
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker-env-msb
+
+  kafka:
+    bootstrap-servers: kafka-broker-msb:9092
+
+
+

@@ -109,7 +109,7 @@ spring:
     enabled: true
 
   kafka:
-    bootstrap-servers: kafka-broker-basic:9092
+    bootstrap-servers: kafka-broker-basic:29092
 
 server:
   port: 9030
@@ -136,7 +136,7 @@ spring:
     enabled: true
 
   kafka:
-    bootstrap-servers: kafka-broker-ly:9092
+    bootstrap-servers: kafka-broker-ly:29092
 
 server:
   port: 9030
@@ -163,7 +163,7 @@ spring:
     enabled: true
 
   kafka:
-    bootstrap-servers: kafka-broker-msb:9092
+    bootstrap-servers: kafka-broker-msb:29092
 
 server:
   port: 9030

@@ -45,7 +45,7 @@ spring:
       on-profile: docker-env-basic
 
   kafka:
-    bootstrap-servers: kafka-broker-basic:9092
+    bootstrap-servers: kafka-broker-basic:29092
 
 
 ---
@@ -55,7 +55,7 @@ spring:
       on-profile: docker-env-ly
 
   kafka:
-    bootstrap-servers: kafka-broker-ly:9092
+    bootstrap-servers: kafka-broker-ly:29092
 
 
 ---
@@ -65,7 +65,7 @@ spring:
       on-profile: docker-env-msb
 
   kafka:
-    bootstrap-servers: kafka-broker-msb:9092
+    bootstrap-servers: kafka-broker-msb:29092
 
 
 
